@@ -10,9 +10,9 @@ token = ("token")
 async def on_ready():
     print("Online.")
 
-@bot.slash_command(guild_ids=[945467468086910976])
+@bot.slash_command()
 async def proxy(ctx, 
-protocol: Option(str, "Proxy Protocol (If you don't choose, auto choose to Http)", choices = ["ALL", "Http", "Socks4", "Socks5"], required=False), 
+protocol: Option(str, "Proxy Protocol (If you don't choose, auto choose to Http)", choices = ["Http", "Socks4", "Socks5", "ALL"], required=False), 
 country: Option(str, "Proxy Country (If you don't choose, auto choose to ALL)", choices = ["ALL", "AR", "CA", "DE", "FR", "HK", "JP", "KR", "RU", "TR", "UA", "US"], required=False), 
 timeout: Option(int, "Proxy Timeout (If you don't choose, auto choose to 5000ms)", min_value=1, max_value=10000, required=False), 
 ):
@@ -56,7 +56,7 @@ timeout: Option(int, "Proxy Timeout (If you don't choose, auto choose to 5000ms)
             proxies.append(proxy)
     for p in proxies:
         f.write((p)+"\n")
-    await ctx.send(file=File("Data/proxies.txt"))
+    await ctx.send(file=File("proxies.txt"))
     return
 
 bot.run(token)
