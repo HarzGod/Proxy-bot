@@ -1,2 +1,2 @@
 # Proxy-bot
-Discord proxy bot with Proxyscrape public APi
+Discord proxy bot with Proxyscrape public API
